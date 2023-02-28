@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quiz_app_bloc/bloc/answear-cubit/answear_cubit.dart';
 import 'package:quiz_app_bloc/presentation/widgets/build_answears_options.dart';
 import 'package:quiz_app_bloc/presentation/widgets/next-question-button.dart';
 
@@ -11,7 +13,12 @@ Column buildColumnWithData(BuildContext context, Question question) {
     children: [
       Text("Pytanie nr ${question.questionNumber}"),
       Text(question.questionText),
-      Container(child: buildAnswearsOptions(context, question.answears)),
+      Container(
+          child: BlocProvider(
+        create: (context) => AnswearCubit(),
+        child: buildAnswearsOptions(
+            context, question.answears, question.goodAnswearIndex),
+      )),
       NextQuestionButton(),
     ],
   );
