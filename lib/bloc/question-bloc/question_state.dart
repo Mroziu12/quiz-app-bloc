@@ -18,9 +18,10 @@ class QuestionLoaded extends QuestionState {
 }
 
 class QuestionEnd extends QuestionState {
-  QuestionEnd();
+  final int points;
+  QuestionEnd(this.points);
   @override
-  List<Object> get props => [];
+  List<Object> get props => [points];
 }
 
 class QuestionError extends QuestionState {

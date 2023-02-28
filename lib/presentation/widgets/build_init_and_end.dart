@@ -14,11 +14,13 @@ Column buildInit() {
   );
 }
 
-Column buildEnd(BuildContext context) {
+Column buildEnd(BuildContext context, int points) {
   return Column(
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: [
       Text("Quiz zakończony"),
+      Text("Zdobyte punkty:"),
+      Text(points.toString()),
       ElevatedButton(
         onPressed: () => restartQuiz(context),
         child: Text("Od Nowa"),

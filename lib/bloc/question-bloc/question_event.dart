@@ -17,3 +17,10 @@ class StartNewQuiz extends QuestionEvent {
   @override
   List<Object> get props => [];
 }
+
+class GoodAnswearSubmitted extends QuestionEvent {
+  GoodAnswearSubmitted();
+  //TODO możliwe duplikacja nazwy
+  @override
+  List<Object> get props => [];
+}

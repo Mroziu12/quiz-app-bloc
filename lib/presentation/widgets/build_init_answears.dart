@@ -13,18 +13,21 @@ Column buildInitAnswears(
         isColored: false,
         answearIndex: 0,
         goodAnswearIndex: goodAnswearIndex,
+        isEnabled: true,
       ),
       AnswearOption(
         answearText: answears[1].answearText,
         isColored: false,
         answearIndex: 1,
         goodAnswearIndex: goodAnswearIndex,
+        isEnabled: true,
       ),
       AnswearOption(
         answearText: answears[2].answearText,
         isColored: false,
         answearIndex: 2,
         goodAnswearIndex: goodAnswearIndex,
+        isEnabled: true,
       ),
     ],
   );

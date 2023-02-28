@@ -11,6 +11,7 @@ part 'question_state.dart';
 class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
   final QuestionRepository questionRepository;
   int questionNumber = -1;
+  int points = 0;
   QuestionBloc(this.questionRepository) : super(QuestionInitial()) {
     on<GetNextQuestion>((event, emit) {
       questionNumber++;
@@ -22,13 +23,17 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
           questionNumber--;
           emit(QuestionError("Błąd bazy danych"));
         } else {
-          emit(QuestionEnd());
+          emit(QuestionEnd(this.points));
         }
       }
     });
     on<StartNewQuiz>((event, emit) {
       questionNumber = -1;
+      points = 0;
       emit(QuestionInitial());
+    });
+    on<GoodAnswearSubmitted>((event, emit) {
+      points++;
     });
   }
 }

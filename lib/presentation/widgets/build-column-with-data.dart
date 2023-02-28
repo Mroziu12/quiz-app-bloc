@@ -14,11 +14,8 @@ Column buildColumnWithData(BuildContext context, Question question) {
       Text("Pytanie nr ${question.questionNumber}"),
       Text(question.questionText),
       Container(
-          child: BlocProvider(
-        create: (context) => AnswearCubit(),
-        child: buildAnswearsOptions(
-            context, question.answears, question.goodAnswearIndex),
-      )),
+          child: buildAnswearsOptions(
+              context, question.answears, question.goodAnswearIndex)),
       NextQuestionButton(),
     ],
   );
